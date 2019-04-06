@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Issue {
+public class IssueDoc {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,15 +18,15 @@ public class Issue {
 
 	private String name;
 	
-	@OneToMany(mappedBy="issue" )
+	@OneToMany(mappedBy="issueDoc" )
 	private List<IssueAnomaly> issueAnomalyList = new ArrayList<IssueAnomaly>();
+	
+	protected IssueDoc() {}
 
-	protected Issue() {}
-
-    public Issue(String name) {
+    public IssueDoc(String name) {
         this.name = name;
     }
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -42,7 +42,7 @@ public class Issue {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public List<IssueAnomaly> getIssueAnomalyList() {
 		return issueAnomalyList;
 	}
@@ -53,6 +53,6 @@ public class Issue {
 
 	@Override
 	public String toString() {
-		return String.format("Issue[id=%d, name='%s']", id, name);
+		return String.format("IssueDoc[id=%d, name='%s']", id, name);
 	}
 }
