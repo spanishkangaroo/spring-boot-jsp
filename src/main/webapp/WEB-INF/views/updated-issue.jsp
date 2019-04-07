@@ -8,10 +8,11 @@
 	Id:
 	<input type="text" name="id" value="${issue.id}">
 	<br> Name:
-	<form:input path="name" />
+	<input type="text" name="name" value="${issue.name}">
+	<br>
 	<br> Anomaly list:
-	<form:select path="issueAnomalyList" multiple="true">
-		<form:options items="${issue.issueAnomalyList}" />
-	</form:select>
+	<c:forEach items="${issue.issueAnomalyList}" var="anomaly">
+    	<option value="${anomaly.id}">${anomaly.name}</option>
+	</c:forEach>
 </body>
 </html>
