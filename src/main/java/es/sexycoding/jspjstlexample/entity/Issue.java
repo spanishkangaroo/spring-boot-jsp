@@ -3,6 +3,7 @@ package es.sexycoding.jspjstlexample.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class Issue {
 
 	private String name;
 	
-	@OneToMany(mappedBy="issue" )
+	@OneToMany(mappedBy="issue", cascade=CascadeType.ALL, orphanRemoval = true)
 	private List<IssueAnomaly> issueAnomalyList = new ArrayList<IssueAnomaly>();
 
 	protected Issue() {}

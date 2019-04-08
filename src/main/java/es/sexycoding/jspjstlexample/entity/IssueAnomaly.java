@@ -1,8 +1,6 @@
 package es.sexycoding.jspjstlexample.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,11 +17,11 @@ public class IssueAnomaly {
 
 	private String name;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "issue_id")
 	private Issue issue;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
     @JoinColumn(name = "issuedoc_id", referencedColumnName = "id")
 	private IssueDoc issueDoc;
 	
